@@ -40,7 +40,7 @@ class Student
     sql = <<-SQL
       SELECT id FROM students WHERE name = (?)
     SQL
-    @id = DB[:conn].execute(sql, self.name)
+    @id = DB[:conn].execute(sql, self.name).flatten.first
   end
 
 end #end of Class
